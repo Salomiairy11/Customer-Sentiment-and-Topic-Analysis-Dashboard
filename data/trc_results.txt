@@ -1,0 +1,40 @@
+Cluster0
+ sweater
+ love
+ color
+ soft
+ great
+
+
+Cluster1
+ size
+ small
+ fit
+ run
+ large
+
+
+Cluster2
+ like
+ look
+ shirt
+ fabric
+ cute
+
+
+Cluster3
+ love
+ great
+ jean
+ pant
+ perfect
+
+
+Cluster4
+ dress
+ fit
+ love
+ beautiful
+ great
+
+
