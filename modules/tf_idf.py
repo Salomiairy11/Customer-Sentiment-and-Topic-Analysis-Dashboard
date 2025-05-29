@@ -6,7 +6,7 @@ from sklearn.decomposition import PCA
 
 processed_data = pd.read_pickle("../models/data_processed.pkl")
 df_cleaned = pd.read_pickle("../models/data_cleaned.pkl")
-reviews = df_cleaned["Full Review"]
+reviews = df_cleaned["Full_Review"]
 sentiment = df_cleaned["Sentiment"]
 
 vectorizer = TfidfVectorizer(lowercase=True,
@@ -16,7 +16,7 @@ vectorizer = TfidfVectorizer(lowercase=True,
                             ngram_range = (1,3),
                             stop_words = 'english')
 
-vectors = vectorizer.fit_transform(df_cleaned["Full Review"])
+vectors = vectorizer.fit_transform(df_cleaned["Full_Review"])
 feature_names = vectorizer.get_feature_names_out()
 dense = vectors.todense()
 denselist = dense.tolist()

@@ -9,8 +9,6 @@ stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
 
 def clean_text(text):
-    if pd.isnull(text):
-        return ''
     text = re.sub(r'<.*?>', '', text)
     text = re.sub(r'[^\w\s]', '', text)
     text = re.sub(r'\d+', '', text)
@@ -20,9 +18,10 @@ def clean_text(text):
     tokens = [lemmatizer.lemmatize(w) for w in tokens]
     return ' '.join(tokens)
 
-def preprocess_dataframe(df, review_column='Full Review'):
+def preprocess_dataframe(df, review_column='Full_Review'):
     df = df.dropna(subset=[review_column])
     df = df.drop_duplicates(subset=[review_column])
-    df['Full Review'] = df[review_column].apply(clean_text)
+    df['Full_Review'] = df[review_column].apply(clean_text)
+    df = df[df[review_column].str.strip().astype(bool)] 
     return df
 
