@@ -41,12 +41,18 @@ LQDIGITALPROJECT
 
 10. modules/
   
-   7.1 preprocessing.ipynb       # Notebook for adding sentiment columns and dataset cleaning
+   7.1 preprocessing.ipynb       # Notebook for addition of Sentiment columns with positive/negative/neutral values for supervised learning, dropping redundant columns in original dataset
+   
    7.2 data_processor.py         # Python functions for cleaning and normalizing text
+   
    7.3 export_model.ipynb        # Handling imbalanced data, TF-IDF + Logistic Regression pipeline, training/testing, evaluation
+   
    7.4 find_topics.py            # TF-IDF + KMeans topic extraction for user-uploaded CSV
+  
    7.5 predict.py                # Sentiment prediction logic
+   
    7.6 tf_idf.py                 # TF-IDF + KMeans topic extraction for original CSV and cluster keyword file creation
+   
    7.7 trc.png                   # Scatterplot of clusters for original dataset
 
 11. venv/                         # Virtual environment (excluded from repo)
