@@ -13,37 +13,37 @@ An interactive web-based application built with Streamlit to process customer fe
 -                  b) Topic Insights: Bar chart listing top keywords for each theme/topic cluster.
                     c) Feedback Table: Interactive table with original comment, sentiment label, and assigned topic.
                    d)  Word Clouds: Two word clouds—one for the most frequent words in positive comments, one for negative.
-jii
-
+               
 ## Project Architecture
 
 LQDIGITALPROJECT
-app.py                     # Main Streamlit dashboard application
-requirements.txt           # Python dependencies
-.gitignore                 # Ignored files (venv)
-│
-├── data/
-│   ├── trc_results.txt        #Cluster names and top keywords for each clusters of my training data
-│
-├── datasets/                  
-├──    ├──Womens Clothing E-Commerce Reviews.csv    #original dataset taken from kaggle for training model 
-├──     ├── Customer Reviews 2 .csv                 #CSV file for user upload in Streamlit app
-│
-├── models/
-│   ├── data_processed.pkl       # Original dataset with addition of Sentiment columns with positive/negative/neutral values for supervised learning, dropping redundant columns
-│   ├── data_cleaned.pkl         # Dataset after cleaning and lemmatization 
-│   └── model.pkl                # sentiment classification pipeline
-│
-├── modules/                   
-|   |   preprocessing.ipynb    # Notebook for addition of Sentiment columns with positive/negative/neutral values for supervised learning, dropping redundant columns in original dataset
-│   ├── data_processor.py      # python functions for cleaning and normalizing text
-|   ├── export_model.ipynb     # handling imbalanced dataset, forming TD-IDF and Logistic Regression pipeline, Training and testing data, evaluation of Metrics
-│   ├── find_topics.py         # TF-IDF + KMeans topic extraction functions for user uploaded csv 
-│   ├── predict.py             # Sentiment prediction logic
-│   ├── tf_idf.py              # TF-IDF + KMeans topic extraction for original csv and formation of file consisting of cluster name and keywords 
-│   └── trc.png                # Scatterplot of clusters of original dataset
-│
-└── venv/                      # Virtual environment (not included in repo)
+1. app.py                         # Main Streamlit dashboard application
+2. requirements.txt               # Python dependencies
+3. .gitignore                    # Ignored files (venv)
+
+4. data/
+   4.1 trc_results.txt           # Cluster names and top keywords for each cluster of training data
+
+5. datasets/
+   5.1 Womens Clothing E-Commerce Reviews.csv    # Original dataset from Kaggle for training model
+   5.2 Customer Reviews 2.csv                    # CSV file for user upload in Streamlit app
+
+6. models/
+   6.1 data_processed.pkl        # Dataset with sentiment columns added, redundant columns dropped
+   6.2 data_cleaned.pkl          # Dataset after cleaning and lemmatization
+   6.3 model.pkl                 # Sentiment classification pipeline
+
+7. modules/
+   7.1 preprocessing.ipynb       # Notebook for adding sentiment columns and dataset cleaning
+   7.2 data_processor.py         # Python functions for cleaning and normalizing text
+   7.3 export_model.ipynb        # Handling imbalanced data, TF-IDF + Logistic Regression pipeline, training/testing, evaluation
+   7.4 find_topics.py            # TF-IDF + KMeans topic extraction for user-uploaded CSV
+   7.5 predict.py                # Sentiment prediction logic
+   7.6 tf_idf.py                 # TF-IDF + KMeans topic extraction for original CSV and cluster keyword file creation
+   7.7 trc.png                   # Scatterplot of clusters for original dataset
+
+8. venv/                         # Virtual environment (excluded from repo)
+
 
 ⚙️ Setup Instructions
 1. Clone the Repository
