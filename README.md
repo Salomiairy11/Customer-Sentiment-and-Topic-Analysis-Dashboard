@@ -22,18 +22,25 @@ LQDIGITALPROJECT
 3. .gitignore                    # Ignored files (venv)
 
 4. data/
-   4.1 trc_results.txt           # Cluster names and top keywords for each cluster of training data
 
-5. datasets/
-   5.1 Womens Clothing E-Commerce Reviews.csv    # Original dataset from Kaggle for training model
-   5.2 Customer Reviews 2.csv                    # CSV file for user upload in Streamlit app
+    4.1 trc_results.txt           # Cluster names and top keywords for each cluster of training data
 
-6. models/
-   6.1 data_processed.pkl        # Dataset with sentiment columns added, redundant columns dropped
-   6.2 data_cleaned.pkl          # Dataset after cleaning and lemmatization
-   6.3 model.pkl                 # Sentiment classification pipeline
+6. datasets/
 
-7. modules/
+    5.1 Womens Clothing E-Commerce Reviews.csv    # Original dataset from Kaggle for training model
+
+    5.2 Customer Reviews 2.csv                    # CSV file for user upload in Streamlit app
+
+8. models/
+
+    6.1 data_processed.pkl        # Dataset with sentiment columns added, redundant columns dropped
+
+    6.2 data_cleaned.pkl          # Dataset after cleaning and lemmatization
+
+    6.3 model.pkl                 # Sentiment classification pipeline
+
+10. modules/
+  
    7.1 preprocessing.ipynb       # Notebook for adding sentiment columns and dataset cleaning
    7.2 data_processor.py         # Python functions for cleaning and normalizing text
    7.3 export_model.ipynb        # Handling imbalanced data, TF-IDF + Logistic Regression pipeline, training/testing, evaluation
@@ -42,7 +49,7 @@ LQDIGITALPROJECT
    7.6 tf_idf.py                 # TF-IDF + KMeans topic extraction for original CSV and cluster keyword file creation
    7.7 trc.png                   # Scatterplot of clusters for original dataset
 
-8. venv/                         # Virtual environment (excluded from repo)
+11. venv/                         # Virtual environment (excluded from repo)
 
 
 ⚙️ Setup Instructions
