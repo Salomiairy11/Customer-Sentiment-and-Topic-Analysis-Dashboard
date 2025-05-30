@@ -18,9 +18,9 @@ An interactive web-based application built with Streamlit to process customer fe
 ## Project Architecture
 
 LQDIGITALPROJECT
-├── app.py                     # Main Streamlit dashboard application
-├── requirements.txt           # Python dependencies
-├── .gitignore                 # Ignored files (venv)
+app.py                     # Main Streamlit dashboard application
+requirements.txt           # Python dependencies
+.gitignore                 # Ignored files (venv)
 │
 ├── data/
 │   ├── trc_results.txt        #Cluster names and top keywords for each clusters of my training data
