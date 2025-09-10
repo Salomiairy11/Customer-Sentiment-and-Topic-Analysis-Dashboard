@@ -80,24 +80,3 @@ All preprocessing, model training, and prediction logic are abstracted into dedi
      7.7 trc.png                   # Scatterplot of clusters for original dataset
 
 8. venv/                         # Virtual environment (excluded from repo)
-
-
-
-### Setup Instructions
-1. Clone the Repository
-  git clone  https://github.com/Salomiairy11/LQDigitalSentimentAnalysis.git
-  cd LQDigitalSentimentAnalysis
-2. Set Up Virtual Environment
-  python -m venv venv
-  venv\Scripts\activate (For Windows)
-3. Install Dependencies
-  pip install -r requirements.txt
-4. Run the Streamlit App
-  streamlit run app.py
-5. Input Format
-Upload a .csv file with at least 20 rows and one column containing free-text customer feedback, The feedback column name should be Full_Review. Or use the CSV file provided.
-
-### Notes: 
-Pretrained models are stored in /models/.
-All preprocessing logic is abstracted in modular files under /modules/.
-
