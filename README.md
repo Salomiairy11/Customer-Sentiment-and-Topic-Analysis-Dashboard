@@ -1,22 +1,46 @@
 ## Project Name: Customer Feedback Analysis Dashboard
+The Customer Feedback Analysis Dashboard is an interactive, web-based application built with Streamlit that empowers businesses to analyze and understand customer feedback at scale. The dashboard is designed to process customer reviews submitted via CSV files, clean and standardize the text, classify sentiment, extract key themes, and visualize insights intuitively and interactively.
 
-An interactive web-based application built with Streamlit to process customer feedback send via a csv file, cleand and process the reviews, classify sentiment, extract key themes via clustering, and visualize insights using intuitive charts and word clouds.
+This project demonstrates the end-to-end workflow of a typical text analytics pipeline, including data preprocessing, handling imbalanced datasets, feature extraction, model training, topic extraction, and dashboard visualization. It is structured to be modular, allowing easy updates to the preprocessing steps, model, or visualization components without affecting the rest of the system.
 
-## Features
+### Detailed Description of Workflow:
 
-- Upload and analyze customer feedback from CSV files.
-- Automated text preprocessing which includes Clean and normalize text (lowercasing, removing stopwords, punctuation, lemmatization)
-- While training  my original dataset, I handled imbalanced distribution of positive, negative, and neutral reviews using RandomUnderSampler
-- Sentiment classification (Positive / Neutral / Negative) using a pre-trained TF-IDF + Logistic Regression model pipeline. 
-- Topic modeling using K-Means clustering on TF-IDF vectors.
-- Visual insights: a) Sentiment Overview: Pie chart showing percentage breakdown of Positive/Neutral/Negative comments.
--                  b) Topic Insights: Bar chart listing top keywords for each theme/topic cluster.
-                    c) Feedback Table: Interactive table with original comment, sentiment label, and assigned topic.
-                   d)  Word Clouds: Two word clouds—one for the most frequent words in positive comments, one for negative.
+#### Data Upload and Integration
+Users can upload a CSV file containing customer reviews. The application supports files with at least 20 rows and requires one text column named `Full_Review`. This flexibility allows businesses to analyze data from different sources without extra formatting effort.
+
+#### Automated Text Preprocessing
+The raw textual data is cleaned and normalized using the preprocessing module. This includes:
+
+- Lowercasing all text to maintain consistency
+- Removing punctuation, numbers, and irrelevant symbols
+- Eliminating stopwords that do not contribute to sentiment or topic detection
+- Lemmatization to reduce words to their base forms
+
+These steps ensure that the input is standardized and suitable for machine learning models, improving both sentiment classification and topic extraction accuracy.
+
+#### Handling Imbalanced Datasets
+While training the sentiment model, the original dataset often had an uneven distribution of positive, neutral, and negative reviews. This imbalance was addressed using `RandomUnderSampler`, ensuring that the classifier is not biased towards dominant classes and can accurately detect all sentiment types.
+
+#### Sentiment Classification
+The dashboard uses a pre-trained TF-IDF + Logistic Regression pipeline to classify each review into Positive, Neutral, or Negative categories. The TF-IDF vectorizer captures the importance of words in context, while Logistic Regression provides reliable classification.
+
+#### Topic Modeling / Theme Extraction
+To uncover underlying themes or topics in the reviews, the system applies K-Means clustering on the TF-IDF vectors. Each cluster represents a recurring topic or theme, and the top keywords in each cluster are extracted and displayed for easier interpretation. This helps businesses quickly identify common concerns, suggestions, or praises.
+
+#### Interactive Visual Insights
+The dashboard offers multiple visualizations to communicate insights effectively:
+
+- **Sentiment Overview:** Pie chart showing the proportion of positive, neutral, and negative comments.
+- **Topic Insights:** Bar chart highlighting top keywords for each detected theme.
+- **Feedback Table:** Interactive table displaying the original review, predicted sentiment, and assigned topic for quick reference.
+- **Word Clouds:** Two separate word clouds for the most frequent words in positive and negative reviews, giving a visual summary of customer opinions.
+
+#### Modular and Reusable Architecture
+All preprocessing, model training, and prediction logic are abstracted into dedicated modules. This ensures that updates to the model or preprocessing steps can be made independently without affecting the dashboard’s functionality. Pretrained models are stored under `/models/`, making deployment faster and reducing computation requirements for end users.
+
                
 ## Project Architecture
 
-LQDIGITALPROJECT
 1. app.py                         # Main Streamlit dashboard application
 2. requirements.txt               # Python dependencies
 3. .gitignore                    # Ignored files (venv)
@@ -29,7 +53,7 @@ LQDIGITALPROJECT
 
     5.1 Womens Clothing E-Commerce Reviews.csv    # Original dataset from Kaggle for training model
 
-    5.2 Customer Reviews 2.csv                    # CSV file for user upload in Streamlit app
+    5.2 Customer Reviews 2.csv                    # Test CSV file for user uploaded in the Streamlit app
 
 6. models/
 
@@ -41,7 +65,7 @@ LQDIGITALPROJECT
 
 7. modules/
   
-     7.1 preprocessing.ipynb       # Notebook for addition of Sentiment columns for supervised learning, dropping redundant columns in original dataset
+     7.1 preprocessing.ipynb       # Notebook for addition of Sentiment columns for supervised learning, dropping redundant columns in the original dataset
      
      7.2 data_processor.py         # Python functions for cleaning and normalizing text
      
@@ -58,7 +82,7 @@ LQDIGITALPROJECT
 8. venv/                         # Virtual environment (excluded from repo)
 
 
-⚙️ Setup Instructions
+Setup Instructions
 1. Clone the Repository
   git clone  https://github.com/Salomiairy11/LQDigitalSentimentAnalysis.git
   cd LQDigitalSentimentAnalysis
