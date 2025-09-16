@@ -1,1 +1,13 @@
-venv/ 
+# Virtual environment
+venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*/__pycache__/
+
+# Qodo-related
+.qodo/
