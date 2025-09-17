@@ -7,6 +7,15 @@ This project demonstrates the end-to-end workflow of a typical text analytics pi
 ![interface3](./assets/StreamlitInterface3.PNG)
 ![interface4](./assets/StreamlitInterface4.PNG)
 
+### Tech Stack:
+
+* Frontend / Dashboard: Streamlit
+* Data Processing & Cleaning: Python (Pandas, NumPy, NLTK, regex)
+* Feature Extraction & NLP: TF-IDF Vectorizer, Scikit-learn
+* Machine Learning: Logistic Regression (for sentiment classification), K-Means (for topic extraction)
+* Data Storage / Serialization: Pickle (for saving preprocessor and trained models)
+* Visualization: Matplotlib, Seaborn, WordCloud, Streamlit charts/components
+
 ### Detailed Description of Workflow:
 
 #### Data Upload and Integration
