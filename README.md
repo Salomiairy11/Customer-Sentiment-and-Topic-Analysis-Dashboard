@@ -3,6 +3,11 @@ The Customer Feedback Analysis Dashboard is an interactive, web-based applicatio
 
 This project demonstrates the end-to-end workflow of a typical text analytics pipeline, including data preprocessing, handling imbalanced datasets, feature extraction, model training, topic extraction, and dashboard visualization. It is structured to be modular, allowing easy updates to the preprocessing steps, model, or visualization components without affecting the rest of the system.
 
+![interface1](./assets/StreamlitInterface1.PNG)
+![interface2](./assets/StreamlitInterface2.PNG)
+![interface3](./assets/StreamlitInterface3.PNG)
+![interface4](./assets/StreamlitInterface4.PNG)
+
 ### Detailed Description of Workflow:
 
 #### Data Upload and Integration
