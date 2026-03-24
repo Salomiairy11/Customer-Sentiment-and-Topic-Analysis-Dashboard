@@ -2,8 +2,6 @@
 The Customer Feedback Analysis Dashboard is an interactive, web-based application built with Streamlit that empowers businesses to analyze and understand customer feedback at scale. 
 This project demonstrates the end-to-end workflow of a typical text analytics pipeline, including data preprocessing, handling imbalanced datasets, feature extraction, model training, topic extraction, and dashboard visualization. It is structured to be modular, allowing easy updates to the preprocessing steps, model, or visualization components without affecting the rest of the system.
 
-# FOR VIDEO DEMO [here](https://salomiairy11.github.io/personal-portfolio/#/projects) 
-
 ![interface1](./assets/StreamlitInterface1.PNG)
 ![interface2](./assets/StreamlitInterface2.PNG)
 ![interface3](./assets/StreamlitInterface3.PNG)
