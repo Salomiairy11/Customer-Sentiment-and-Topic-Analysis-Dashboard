@@ -8,12 +8,58 @@ from wordcloud import WordCloud
 
 st.set_page_config(page_title='Customer Feedback Dashboard', layout='wide')
 
+REVIEW_COLUMNS = [
+    'Full_Review',
+    'Review',
+    'Reviews',
+    'Feedback',
+    'Text',
+    'tweet_text',
+    'full_text',
+    'Content',
+    'Comment',
+    'Comments',
+    'Body',
+    'Message',
+]
+
+
+def normalize_column_name(name):
+    return ''.join(char.lower() if char.isalnum() else '_' for char in str(name)).strip('_')
+
+
+def detect_review_column(dataframe):
+    normalized = {normalize_column_name(column): column for column in dataframe.columns}
+    for candidate in REVIEW_COLUMNS:
+        match = normalized.get(normalize_column_name(candidate))
+        if match:
+            return match
+    return None
+
+
+def prepare_review_dataframe(dataframe, review_column):
+    prepared = dataframe.copy()
+    prepared['Full_Review'] = prepared[review_column].astype(str).str.strip()
+    prepared = prepared[prepared['Full_Review'].astype(bool)].copy()
+    return prepared
+
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     
 df = st.file_uploader(label="Upload your CSV file")
 if df:
-    df = pd.read_csv(df)
+    df = pd.read_csv(df, encoding='utf-8-sig')
+    review_column = detect_review_column(df)
+    if review_column is None:
+        accepted = ', '.join(REVIEW_COLUMNS)
+        st.error(f"Upload a CSV with one review text column such as: {accepted}.")
+        st.stop()
+
+    df = prepare_review_dataframe(df, review_column)
+    if df.empty:
+        st.error("The selected review column has no non-empty review text.")
+        st.stop()
+
     df_cleaned = preprocess_dataframe(df, review_column='Full_Review')
     df_with_sentiment = predict_sentiment(df_cleaned, review_col='Full_Review')
     cluster_indices, top_keywords, cluster_scores = extract_topics(df_cleaned['Full_Review'])
@@ -28,10 +74,11 @@ if df:
 
     sentiment_counts = df_cleaned["Sentiment"].value_counts().sort_index()
     labels = ["Negative", "Neutral", "Positive"]
+    sentiment_counts = sentiment_counts.reindex(labels, fill_value=0)
     with col1:
         st.markdown("<h3>Sentiment Overview</h3>", unsafe_allow_html=True)
         fig, ax = plt.subplots(figsize=(5,4))
-        ax.pie(sentiment_counts, labels=labels, autopct="%.2f%%", colors=['#ef4444','#fbbf24','#34d399'])
+        ax.pie(sentiment_counts.values, labels=sentiment_counts.index, autopct="%.2f%%", colors=['#ef4444','#fbbf24','#34d399'])
         st.pyplot(fig)
 
     with col2:

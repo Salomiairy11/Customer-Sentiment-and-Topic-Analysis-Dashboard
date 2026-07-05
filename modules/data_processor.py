@@ -19,9 +19,9 @@ def clean_text(text):
     return ' '.join(tokens)
 
 def preprocess_dataframe(df, review_column='Full_Review'):
-    df = df.dropna(subset=[review_column])
-    df = df.drop_duplicates(subset=[review_column])
+    df = df.dropna(subset=[review_column]).copy()
+    df[review_column] = df[review_column].astype(str).str.strip()
+    df = df[df[review_column].astype(bool)].copy()
+    df = df.drop_duplicates(subset=[review_column]).copy()
     df['Full_Review'] = df[review_column].apply(clean_text)
-    df = df[df[review_column].str.strip().astype(bool)] 
     return df
-

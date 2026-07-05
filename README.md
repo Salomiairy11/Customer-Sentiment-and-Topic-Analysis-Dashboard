@@ -19,7 +19,7 @@ This project demonstrates the end-to-end workflow of a typical text analytics pi
 ### Detailed Description of Workflow:
 
 #### Data Upload and Integration
-Users can upload a CSV file containing customer reviews. The application supports files with at least 20 rows and requires one text column named `Full_Review`. This flexibility allows businesses to analyze data from different sources without extra formatting effort.
+Users can upload a CSV file containing customer reviews. The application supports files with at least 20 rows and accepts `Full_Review`, `Review`, `Feedback`, `Text`, `tweet_text`, `full_text`, `Comment`, `Body`, or `Message` text columns, including Xquik API exports. This flexibility allows businesses to analyze data from different sources without extra formatting effort.
 
 #### Automated Text Preprocessing
 The raw textual data is cleaned and normalized using the preprocessing module. This includes:
